@@ -1,0 +1,27 @@
+GET http://127.0.0.1:8000/
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:8000/api/sessions
+Content-Type: application/json
+
+{
+  "topic": "机器学习中的过拟合"
+}
+
+###
+
+POST http://127.0.0.1:8000/api/sessions/{{session_id}}/answer
+Content-Type: application/json
+
+{
+  "answer": "过拟合是模型在训练集上学得太细，包含噪声，导致泛化能力下降。它的作用是提醒我们需要控制模型复杂度。机制上通常是参数过多或训练过久，可以用正则化、交叉验证和更多数据缓解。例如考试只背原题但不会做新题。"
+}
+
+###
+
+GET http://127.0.0.1:8000/api/sessions/{{session_id}}
+Accept: application/json
+
+###
